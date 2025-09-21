@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    position: left ;
+  }
+
+  &__logoImage {
+    position: absolute;
+    width: 146px;
+    height: 146px;
+    left: 17px;
+    top: 70px;
+    margin-left: 200px;
+  }
+
+  &__title {
+    margin-left: 170px; /* distância da logo */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+}

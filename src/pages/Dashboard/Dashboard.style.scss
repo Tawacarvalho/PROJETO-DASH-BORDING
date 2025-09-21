@@ -1,0 +1,380 @@
+.dashboard { 
+  display: flex;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #ffffff;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+  background: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+/* Logo no topo da sidebar */
+.logo-sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 0;
+  border-bottom: 1px solid #e5e7eb;
+
+  img {
+    width: 30px;
+    height: auto;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #5A67BA;
+  }
+}
+
+/* Menu e Outros */
+.menu-total {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 4px 12px;
+
+    &:hover {
+      background: #f3f4f6;
+    }
+
+    &.active {
+      background: #e0ecff;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+/* Títulos de Menu e Outros */
+.menu-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 16px 0 6px 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== MAIN ===== */
+.main {
+  margin-left: 240px; // largura da sidebar
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+  position: fixed; 
+  top: 0;
+  left: 241px; 
+  right: 0;
+  height: 54px;
+  min-height: 54px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6.5px 20px;
+  border-bottom: 2px solid #e5e7eb;
+  gap: 10px;
+  z-index: 1000; 
+  margin-top: 8px;
+}
+
+/* Ajusta conteúdo para não ficar atrás da topbar */
+.content {
+  margin-top: 54px; // mesma altura da topbar
+  padding: 20px;
+}
+
+
+/* Usuário à esquerda */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+}
+
+/* Container da pesquisa centralizada */
+.search-container {
+  position: relative;
+  width: 500px;
+  display: flex;
+  flex-shrink: 0;
+  margin: 0 auto;
+  margin-left: 500px;
+
+  input {
+    width: 100%;
+    padding: 6px 30px 6px 10px;
+    border-radius: 5px;
+    border: none;
+    background: #f3f4f6;
+    font-size: 13px;
+    outline: none;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #9ca3af;
+    pointer-events: none;
+  }
+}
+
+/* ===== DROPDOWN DO USUÁRIO/LOJA ===== */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 8px;
+
+    .avatar-container {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #FFE6CC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .user-name {
+      color: #374151;
+    }
+
+    .dropdown-arrow {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+      stroke: #374151;
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    z-index: 20;
+
+    button {
+      padding: 10px 12px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      font-size: 13px;
+      color: #374151;
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        background: #f3f4f6;
+      }
+    }
+  }
+}
+
+/* Área à direita da topbar */
+.right-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+
+  .notification-container {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    .notif-icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    .notif-sign {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+/* ===== CONTENT ===== */
+.content {
+  padding: 24px;
+  margin-left: 50px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111827;
+  }
+}
+
+/* ===== TABLE ===== */
+.table-container {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  thead {
+    background: #f9fafb;
+  }
+
+  th, td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  th {
+    font-weight: 600;
+    color: #374151;
+  }
+
+  td {
+    color: #4b5563;
+  }
+
+  tbody tr:hover {
+    background: #f9fafb;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 4px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #2563eb;
+    }
+  }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    padding-top: 10px;
+  }
+
+  .main {
+    margin-left: 60px;
+  }
+
+  .logo-sidebar img {
+    width: 32px;
+  }
+
+  .menu-title {
+    display: none;
+  }
+
+  .menu-total li span {
+    display: none;
+  }
+
+  .search-container {
+    width: 120px;
+  }
+
+  .right-bar,
+  .dropdown {
+    display: none;
+  }
+}
