@@ -15,6 +15,7 @@ import { getProducts } from "../../services/productService";
 import LogoSidebar from "../../assets/logo-sidebar.svg";
 import NotifIcon from "../../assets/NotifIcon.svg";
 import NotifSign from "../../assets/NotifSign.svg";
+import AvatarDefault from "../../assets/avatar.svg";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ export const Dashboard = () => {
       <main className="main">
         <header className="topbar">
           <div className="user-info">
-            <img src={user?.avatar || "/src/assets/avatar.svg"} alt="Avatar" className="avatar" />
+            <img src={user?.avatar || AvatarDefault} alt="Avatar" className="avatar" />
             <span>Olá, {user?.fullname || "Usuário"}</span>
           </div>
 
