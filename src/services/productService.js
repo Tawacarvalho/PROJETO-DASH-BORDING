@@ -3,7 +3,7 @@ export const getProducts = async () => {
     const token = localStorage.getItem("token");
     if (!token) throw new Error("Token não encontrado. Usuário não está logado.");
 
-    const response = await fetch("/api/products", {
+    const response = await fetch("https://api-node-test-6c4b0a5d4c87.herokuapp.com/products", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
